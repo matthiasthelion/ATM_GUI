@@ -18,6 +18,19 @@ public class GUI1 {
         p.add(b);
         f.add(p);
         f.setVisible(true);
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String ATMNumber = t.getText();
+                String ATMPin = new String(pwd.getPassword());
+
+                if (ATMNumber.equals("12345") && ATMPin.equals("123")) {
+                    f.dispose();  // Đóng cửa sổ đăng nhập
+                    MainScreen(); // Chuyển sang màn hình chính
+                } else {
+                    infoBox("Invalid account. Please try again!", "Error");
+                }
+            }
+        });
     }
     static void Withdraw() {
         JFrame f = new JFrame();
